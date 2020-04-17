@@ -226,11 +226,7 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioMedia,		spawn,		SHCMD("st -e ncmpcpp") },
 	{ 0, XF86XK_PowerOff,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
 	{ 0, XF86XK_Calculator,		spawn,		SHCMD("st -e bc -l") },
-<<<<<<< HEAD
 	{ 0, XF86XK_Sleep,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Hibernate computer?\")\" = Yes ] && sudo -A systemctl suspend") },
-=======
-	{ 0, XF86XK_Sleep,		spawn,		SHCMD("sudo -A zzz") },
->>>>>>> dc2cfafa7e9c1c5789909db27ae78ea2cb3e4c99
 	{ 0, XF86XK_WWW,		spawn,		SHCMD("$BROWSER") },
 	{ 0, XF86XK_DOS,		spawn,		SHCMD("st") },
 	{ 0, XF86XK_ScreenSaver,	spawn,		SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
