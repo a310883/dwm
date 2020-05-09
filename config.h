@@ -17,7 +17,7 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
+static char selbordercolor[]        = "#770000";
 static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -87,8 +87,8 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
 	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
+	{ MOD, XK_v,     ACTION##stack, {.i = 0 } }, \
 	/* { MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \ */
-	/* { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \ */
 	/* { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \ */
 	/* { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \ */
 	/* { MOD, XK_x,     ACTION##stack, {.i = -1 } }, */
@@ -151,9 +151,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_p,			spawn,		SHCMD("mpc toggle") },
 	{ MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("mpc pause ; pauseallmpv") },
 	{ MODKEY,			XK_bracketleft,		spawn,		SHCMD("mpc seek -10") },
-	{ MODKEY|ShiftMask,		XK_bracketleft,		spawn,		SHCMD("mpc seek -120") },
+	{ MODKEY|ShiftMask,		XK_bracketleft,		spawn,		SHCMD("mpc seek -60") },
 	{ MODKEY,			XK_bracketright,	spawn,		SHCMD("mpc seek +10") },
-	{ MODKEY|ShiftMask,		XK_bracketright,	spawn,		SHCMD("mpc seek +120") },
+	{ MODKEY|ShiftMask,		XK_bracketright,	spawn,		SHCMD("mpc seek +60") },
 	{ MODKEY,			XK_backslash,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("") }, */
 
@@ -183,8 +183,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
 	/* { MODKEY,			XK_c,		spawn,		SHCMD("") }, */
 	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
-	/* { MODKEY,			XK_v,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("") }, */
+	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e nvim -c VimwikiIndex") },
@@ -285,6 +284,8 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
 	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
+	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("st -e nvim ~/.local/src/dwmblocks/config.h") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,	{0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
